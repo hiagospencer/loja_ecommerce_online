@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'carrinho'
 ]
 
 MIDDLEWARE = [
@@ -60,17 +61,15 @@ TEMPLATES = [
 WSGI_APPLICATION = 'ecommerce_django.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'fUywIC085d1uwCxFnm7G',
-        'HOST': 'containers-us-west-197.railway.app',
-        'PORT': '6328'
+        'PASSWORD': 'Z4yPWbXXcXPbMv3UxFca',
+        'HOST': 'containers-us-west-192.railway.app',
+        'PORT': '6364'
     }
 }
 
@@ -112,6 +111,12 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+
+MEDIA_URL = 'media/'
+
+MEDIA_ROOT = BASE_DIR / 'media'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

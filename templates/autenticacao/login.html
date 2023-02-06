@@ -1,0 +1,94 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'imagens/logo-space-games.ico' %}" rel="icon">
+    <title>Space Games - Login</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    
+    
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    
+</head>
+<body>
+    
+    
+<div style="background: url({% static 'imagens/rei-da-noite.jpg' %}) center center / cover no-repeat fixed;">
+   
+    <div class="container-fluid">
+
+        <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
+            <div class="col-lg-4">
+                <a href="{% url 'ecommerce:home' %}" class="text-decoration-none">
+                    <span class="h1 text-uppercase text-primary bg-dark px-2">Space</span>
+                    <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Games</span>
+                </a>
+            </div>
+
+                <div class="col-lg-4 col-6 text-center">
+                    
+                </div>
+        
+            <div class="col-lg-4 col-6 text-right">              
+                <p class="m-0">Telefone</p>
+                <h5 class="m-0">(84) 98863-8467</h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-9">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-0">
+            <a href="{% url 'ecommerce:home' %}" class="text-decoration-none d-block d-lg-none">
+                <span class="h1 text-uppercase text-dark bg-light px-2">space</span>
+                <span class="h1 text-uppercase text-light bg-primary px-2 ml-n1">Games</span>
+            </a>
+             
+        </nav>
+    </div>
+
+    <!--=================== CONTAINER DO FORMULARIO DE LOGIN =========================-->
+
+
+    <div class="login-container">    
+            
+        <form action="." class="form-login" method="POST"> {% csrf_token %}
+            <ul class="login-nav">
+                <li class="login-nav_item active">
+                    <a class="btn" href="{% url 'ecommerce:login' %}">Login</a>
+                </li>
+
+                <li class="login-nav_item">
+                    <a href="{% url 'ecommerce:cadastro' %}">Registre-se</a>
+                </li>
+            </ul>\
+
+            <label for="login-input-user" class="login_label">Usuário</label>
+            <input type="text" id="login-input-user" class="login_input" name="username">
+
+            <label for="login-input-password" class="login_label">Senha</label>
+            <input type="password" id="login-input-password" class="login_input" name="password">
+
+            <label for="login-sing-up" class="login_label--checkbox">
+                <input type="hidden" class="login_input--checkbox" id="login-sing-up" >
+            </label>
+
+            <ul>
+                {% for message in messages %}
+                <li style="color:red; font-size: 18px;">{{ message }}</li>
+                {% endfor %}
+            </ul>
+
+            <button type="submit" class="login_submit" style="color:black;">Entrar</button>
+        </form>
+        <a href="#" class="login_forgot">Esqueçeu a senha?</a>
+    </div><!--login-container-->
+</div>
+</body>
+</html>
