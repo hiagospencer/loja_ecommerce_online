@@ -17,6 +17,7 @@ def cart_update(request):
     if product_id is not None:
         try:
             product_obj = Produto.objects.get(id = product_id)
+            
         except Produto.DoesNotExist:
             print("Mostrar mensagem ao usuário, esse produto acabou!")
             return redirect("cart:carrinho")
