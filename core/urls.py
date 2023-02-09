@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import (  checkout, contato, cadastro_user, login_user, logout_user,
+from .views import ( cadastro_user, login_user, logout_user, contato,
                     HomeListView, ProdutoDetail, ShopListView, ReceptorListView, Fones_OuvidoListView,
-                    ControleListView,AcessoriosListView, ConsoleListView,
+                    ControleListView,AcessoriosListView, ConsoleListView, 
                     
                     )
 
@@ -10,9 +10,10 @@ app_name = 'ecommerce'
 urlpatterns = [
     path('', HomeListView.as_view(), name='home'),
     path('shop/', ShopListView.as_view(), name='shop'),
-    path('detail/<int:pk>', ProdutoDetail.as_view(), name='detail'),
-    path('checkout/', checkout, name='checkout'),
     path('contato/', contato, name='contato'),
+    path('detail/<int:pk>', ProdutoDetail.as_view(), name='detail'),
+
+    #path('contato/', contato, name='contato'),
 
     # Urls de Login e Register
     path('login/', login_user, name="login"),

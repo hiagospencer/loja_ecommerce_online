@@ -118,10 +118,10 @@ class ShopListView(ListView):
 
 
 def contato(request):
-    return render(request, 'contact.html')
-
-def checkout(request):
-    return render(request, 'checkout.html')
+    context = {}
+    lista_produtos = Cart.objects.filter(produtos__active=True)
+    context['lista_produtos'] = lista_produtos
+    return render(request, 'contact.html', context)
 
 
 # ========================== TEMPLATES DAS CATEGORIAS ==========================
