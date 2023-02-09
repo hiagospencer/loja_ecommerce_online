@@ -119,7 +119,8 @@ class ShopListView(ListView):
 
 def contato(request):
     context = {}
-    lista_produtos = Cart.objects.filter(produtos__active=True)
+    user_id = request.user.id
+    lista_produtos = Cart.objects.get(id=user_id).produtos.all()
     context['lista_produtos'] = lista_produtos
     return render(request, 'contact.html', context)
 
